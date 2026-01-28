@@ -1,0 +1,514 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= VARIABLES ================= */
+:root {
+    --rojo: #e10600;
+    --rosa: #ff4d6d;
+    --rosa-claro: #ffd6e0;
+    --blanco: #ffffff;
+    --gris: #444;
+    --negro: #111;
+}
+
+/* ================= GENERAL ================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--blanco);
+    color: var(--gris);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ================= HEADER ================= */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--rojo);
+    z-index: 1000;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: var(--blanco);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.menu a {
+    color: var(--blanco);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--rosa);
+}
+
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    background: linear-gradient(
+        rgba(225, 6, 0, 0.7),
+        rgba(255, 77, 109, 0.7)
+    ),
+    url("hero.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.hero-text {
+    color: var(--blanco);
+    max-width: 700px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-principal {
+    background: var(--blanco);
+    color: var(--rojo);
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-principal:hover {
+    background: var(--rosa);
+    color: var(--blanco);
+}
+
+/* ================= SECCIONES ================= */
+section {
+    padding: 6rem 2rem;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.4rem;
+    color: var(--rojo);
+    margin-bottom: 1.5rem;
+}
+
+section p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 1.05rem;
+}
+
+/* ================= PROYECTOS ================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card {
+    background: var(--rosa-claro);
+    padding: 2rem;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    color: var(--rojo);
+    margin-bottom: 1rem;
+}
+
+
+
+/* ================= GALERÍA PRO (VERTICAL) ================= */
+
+.grid-galeria {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.foto {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 360px; /* MÁS ALTA = VERTICAL */
+    cursor: pointer;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* mantiene proporción */
+    object-position: center;
+    transition: transform 0.6s ease;
+}
+
+/* Overlay romántico */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(225, 6, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.overlay p {
+    color: var(--blanco);
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Hover elegante */
+.foto:hover img {
+    transform: scale(1.1);
+}
+
+.foto:hover .overlay {
+    opacity: 1;
+}
+
+
+/* ================= CONTACTO ================= */
+.contacto {
+    background: var(--rosa-claro);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: var(--rojo);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .menu {
+        gap: 1.2rem;
+    }
+}
+
+/* ================= ANIMACIONES SCROLL ================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación especial para cards */
+.card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Galería */
+.foto {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s ease;
+}
+
+.foto.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ================= ABOUT PAGE ================= */
+
+.about-hero {
+    height: 60vh;
+    background: linear-gradient(
+        rgba(225, 6, 0, 0.7),
+        rgba(255, 77, 109, 0.7)
+    ),
+    url("hero.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--blanco);
+}
+
+.about-hero-text h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+}
+
+.about-hero-text p {
+    font-size: 1.2rem;
+}
+
+/* CONTENIDO */
+.about-content {
+    padding: 6rem 2rem;
+}
+
+.about-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text h2 {
+    color: var(--rojo);
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+/* FRASE */
+.about-frase {
+    background: var(--rosa-claro);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.about-frase p {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--rojo);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-hero-text h1 {
+        font-size: 2.4rem;
+    }
+}
+
+/* ================= PLAYLIST PAGE ================= */
+
+/* ================= PLAYLIST PAGE ================= */
+
+/* ================= PLAYLIST VISUAL ================= */
+
+.playlist-section {
+    padding-top: 10rem; /* header fixed */
+}
+
+.playlist-grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.playlist-item {
+    position: relative;
+    height: 360px; /* vertical */
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.playlist-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* Overlay tipo galería */
+.playlist-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(225, 6, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.playlist-overlay p {
+    color: var(--blanco);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+.playlist-overlay a {
+    background: var(--blanco);
+    color: var(--rojo);
+    padding: 0.6rem 1.6rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.playlist-overlay a:hover {
+    background: var(--rosa);
+    color: var(--blanco);
+}
+
+/* Hover */
+.playlist-item:hover img {
+    transform: scale(1.1);
+}
+
+.playlist-item:hover .playlist-overlay {
+    opacity: 1;
+}
+
+.conclusion{
+    text-align: center;
+    line-height: 1.9;
+}
+
+.decor-heart{
+    font-size: 26px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.linea{
+    width: 60px;
+    height: 3px;
+    background: #f4a6c1;
+    margin: 25px auto;
+    border-radius: 10px;
+}
+
+.resaltado{
+    color: #e86aa5;
+    font-weight: 600;
+}
+
+.firma{
+    margin-top: 35px;
+    color: #c94b86;
+}
+
+.momentos-box{
+    text-align: center;
+}
+
+.intro-momentos{
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+    color: #7a2d4d;
+    line-height: 1.8;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.card{
+    background: #fff0f6;
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+.card h3{
+    color: #e86aa5;
+    margin-bottom: 15px;
+}
+
+.card p{
+    color: #5a2a3a;
+    line-height: 1.6;
+}
+
+.emoji{
+    font-size: 28px;
+    display: block;
+    margin-bottom: 10px;
+}
